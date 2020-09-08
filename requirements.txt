@@ -1,0 +1,28 @@
+certifi==2020.6.20
+chardet==3.0.4
+dominate==2.5.2
+idna==2.10
+imageio @ file:///tmp/build/80754af9/imageio_1594161405741/work
+jsonpatch==1.26
+jsonpointer==2.0
+mkl-fft==1.1.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+numpy @ file:///C:/ci/numpy_and_numpy_base_1596215850360/work
+olefile==0.46
+pandas==1.1.1
+Pillow @ file:///C:/ci/pillow_1594298230227/work
+python-dateutil==2.8.1
+pytz==2020.1
+pyzmq==19.0.2
+requests==2.24.0
+scipy==1.5.2
+six==1.15.0
+torch==1.6.0
+torchfile==0.1.0
+torchvision==0.7.0
+tornado==6.0.4
+urllib3==1.25.10
+visdom==0.1.8.9
+websocket-client==0.57.0
+wincertstore==0.2
