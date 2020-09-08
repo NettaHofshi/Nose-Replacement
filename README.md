@@ -6,6 +6,7 @@ This project is a machine learning project that learns to recognize noses accord
 1. Download the images dataset from <a href="https://drive.google.com/open?id=0B7EVK8r0v71pWEZsZE9oNnFzTm8">HERE</a>
 2. Extract the pictures and set them into the *** folder
 3. Change the paths in the `train_options.py` to align to your computer running the code
+4. Install the needed python module in the `requirements.txt` file (Using: `pip install -r requirements.txt`)
 
 Now you are ready to let the code learn to recognize noses:
 * Run the following command `python train.py` and let it run
