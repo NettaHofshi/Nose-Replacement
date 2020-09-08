@@ -13,6 +13,9 @@ Now you are ready to let the code learn to recognize noses:
 Once finished you should run `python test.py --image1 <first image location> --image2 <second image location>` and the output will be in the `results` folder<br>
 *NOTE:* Replace the `first/second image location` with the location of the pictures you want to replace their noses
 
+# Output example
+<b>Place output here</b>
+
 # License
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
