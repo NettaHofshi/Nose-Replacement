@@ -3,7 +3,7 @@
 This project is a machine learning project that learns to recognize noses according to pre determined dataset with nose indices and then replace the noses between two pictures
 
 # How to start
-1. Download the images dataset from <a href="https://drive.google.com/open?id=0B7EVK8r0v71pWEZsZE9oNnFzTm8">HERE</a>
+1. Download the images dataset and the annotations file from <a href="https://drive.google.com/open?id=0B7EVK8r0v71pWEZsZE9oNnFzTm8">HERE</a>
 2. Extract the pictures and set them into the *** folder
 3. Change the paths in the `train_options.py` to align to your computer running the code
 4. Install the needed python module in the `requirements.txt` file (Using: `pip install -r requirements.txt`)
@@ -11,7 +11,7 @@ This project is a machine learning project that learns to recognize noses accord
 Now you are ready to let the code learn to recognize noses:
 * Run the following command `python train.py` and let it run
 
-Once finished you should run `python test.py --image1 <first image location> --image2 <second image location>` and the output will be in the `results` folder<br>
+Once finished you should run `python test.py --ann_file <location of annotations file> --image1 <first image location> --image2 <second image location>` and the output will be in the `results` folder<br>
 *NOTE:* Replace the `first/second image location` with the location of the pictures you want to replace their noses
 
 # Output example
