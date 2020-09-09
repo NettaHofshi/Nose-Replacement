@@ -10,13 +10,15 @@ import pandas as pd
 
 
 class CreateDataset(data.Dataset):
-    def __init__(self, opt):
+    def __init__(self, opt,isTest):
+        self.isTest = isTest
         self.opt = opt
         self.img_paths, self.img_size = make_dataset(opt.img_file)
         # provides random file for training and testing
         if opt.mask_file != 'none':
             self.mask_paths, self.mask_size = make_dataset(opt.mask_file)
         self.transform = get_transform(opt)
+        self.isTest = isTest
 
     def __getitem__(self, index):
         # load image
@@ -36,6 +38,8 @@ class CreateDataset(data.Dataset):
         img = trans(img)
         crop = img.crop((x, y, range_x, range_y))
         choice = random.randint(0, 2)
+        if (self.isTest == True):
+            choice = 0;
         if choice == 0:
             im = crop
         elif choice == 1:
@@ -108,8 +112,8 @@ class CreateDataset(data.Dataset):
             return task.nose_mask(img, annotations['nose_x'], annotations['nose_y'], img_path)
 
 
-def dataloader(opt):
-    datasets = CreateDataset(opt)
+def dataloader(opt,isTest=False):
+    datasets = CreateDataset(opt,isTest)
     dataset = data.DataLoader(datasets, batch_size=opt.batchSize, shuffle=not opt.no_shuffle,
                               num_workers=int(opt.nThreads))
 
