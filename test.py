@@ -23,7 +23,7 @@ if __name__=='__main__':
             os.remove(f)
     copyfile(opt.image1, os.path.join(opt.img_file,os.path.split(opt.image1)[-1]))
     copyfile(opt.image2, os.path.join(opt.img_file,os.path.split(opt.image2)[-1]))
-    dataset = data_loader.dataloader(opt)
+    dataset = data_loader.dataloader(opt,True)
     dataset_size = len(dataset) * opt.batchSize
     print('testing images = %d' % dataset_size)
     # create a model
