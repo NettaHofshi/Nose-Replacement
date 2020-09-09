@@ -87,7 +87,8 @@ class Pluralistic(BaseModel):
         # self.save_results(self.img_m, data_name='mask')
 
         # encoder process
-        distribution, f = self.net_E(self.img_m)
+        ##flip tensors
+        distribution, f = self.net_E(torch.flip(self.img_m, [0]))
         q_distribution = torch.distributions.Normal(distribution[-1][0], distribution[-1][1])
         scale_mask = task.scale_img(self.mask, size=[f[2].size(2), f[2].size(3)])
 
@@ -99,32 +100,7 @@ class Pluralistic(BaseModel):
             self.score = self.net_D(self.img_out)
             ##save the last iteration only
             if i == self.opt.nsampling - 1:
-                self.save_results(self.img_out, i, data_name='out')
-                self.flip_nose()
-
-    ##add function to flip noses
-    def flip_nose(self):
-        img_name1, img_name2 = os.path.split(self.image_paths[0])[-1].split('.')[0], \
-                               os.path.split(self.image_paths[1])[-1].split('.')[0]
-        ann1, ann2 = self.load_annotations(img_name1 + '.jpg'), self.load_annotations(img_name2 + '.jpg')
-        x1, x2 = ann1['nose_x'] + 10, ann2['nose_x'] + 10
-        y1, y2 = ann1['nose_y'] + 5, ann2['nose_y'] + 5
-        range_x1, range_x2 = ann1['nose_x'] + 54, ann2['nose_x'] + 54
-        range_y1, range_y2 = ann1['nose_y'] + 36, ann2['nose_y'] + 36
-        im1_crop, im2_crop = Image.open(os.path.join(self.opt.results_dir, img_name1 + "_out_49.png")).crop(
-            (x1, y1, range_x1, range_y1)), \
-                             Image.open(os.path.join(self.opt.results_dir, img_name2 + "_out_49.png")).crop(
-                                 (x2, y2, range_x2, range_y2))
-        im1_truth, im2_truth = Image.open(os.path.join(self.opt.results_dir, img_name1 + "_truth.png")), \
-                               Image.open(os.path.join(self.opt.results_dir, img_name2 + "_truth.png"))
-        im1_truth.paste(im2_crop, (x1, y1))
-        im2_truth.paste(im1_crop, (x2, y2))
-        im1_truth.save(os.path.join(self.opt.results_dir, img_name1 + "_" + img_name2 + "_nose.png"))
-        im2_truth.save(os.path.join(self.opt.results_dir, img_name2 + "_" + img_name1 + "_nose.png"))
-        os.remove(os.path.join(self.opt.results_dir, img_name1 + "_out_49.png"))
-        os.remove(os.path.join(self.opt.results_dir, img_name2 + "_out_49.png"))
-        os.remove(os.path.join(self.opt.results_dir, img_name1 + "_truth.png"))
-        os.remove(os.path.join(self.opt.results_dir, img_name2 + "_truth.png"))
+                self.save_results(self.img_out, data_name='flipped')
 
     def get_distribution(self, distributions):
         """Calculate encoder distribution for img_m, img_c"""
