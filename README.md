@@ -16,6 +16,14 @@ Once finished you should run `python test.py --image1 <first image location> --i
 
 # Output example
 <table>
+ <tr>
+<td><img src='results/001029_flipped.png'></td>
+<td><img src='results/001060_flipped.png'></td>
+</tr>
+<tr>
+<td><img src='results/000621_flipped.png'></td>
+<td><img src='results/000622_flipped.png'></td>
+</tr>
 <tr>
 <td><img src='results/000621_flipped.png'></td>
 <td><img src='results/000622_flipped.png'></td>
