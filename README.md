@@ -25,12 +25,12 @@ Once finished you should run `python test.py --image1 <first image location> --i
 <td><img src='results/000622_flipped.png'></td>
 </tr>
 <tr>
-<td><img src='results/000621_flipped.png'></td>
-<td><img src='results/000622_flipped.png'></td>
+<td><img src='results/001041_flipped.png'></td>
+<td><img src='results/001057_flipped.png'></td>
 </tr>
 <tr>
-<td><img src='results/001052_flipped.png'></td>
-<td><img src='results/001054_flipped.png'></td>
+<td><img src='results/001050_flipped.png'></td>
+<td><img src='results/001061x_flipped.png'></td>
 </tr>
 <tr>
 <td><img src='results/001061_flipped.png'></td>
