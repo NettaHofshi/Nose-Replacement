@@ -15,7 +15,12 @@ Once finished you should run `python test.py --image1 <first image location> --i
 *NOTE:* Replace the `first/second image location` with the location of the pictures you want to replace their noses
 
 # Output example
-<b>Place output here</b>
+<table>
+<tr>
+<td><img src='results/001061_flipped.png'></td>
+<td><img src='results/001026_flipped.png'></td>
+</tr>
+</table>
 
 # License
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
